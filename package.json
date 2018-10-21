@@ -1,4 +1,6 @@
 {
+  "author": "Philippe Leclerc",
+  "license": "MIT",
   "name": "disgaea-info",
   "version": "0.1.0",
   "private": true,
