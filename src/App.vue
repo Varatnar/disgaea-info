@@ -1,15 +1,30 @@
 <template>
     <div id="app">
-        <div id="nav">
-            <router-link to="/">Home</router-link>
-            |
-            <router-link to="/about">About</router-link>
-        </div>
-        <router-view/>
+        <MainItems/>
     </div>
 </template>
 
 <style>
+    body {
+        background: black;
+        color: #CCC;
+        font-family: Tahoma, serif;
+        font-size: 16px;
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        right: 0;
+        padding: 5px 5px 5px 15px;
+        background: black;
+        width: 100px;
+    }
+
+    a:link, a:visited {
+        color: #CCC;
+    }
+
     #app {
         font-family: 'Avenir', Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
@@ -31,3 +46,14 @@
         color: #42b983;
     }
 </style>
+<script lang="ts">
+    import Vue from "vue";
+    import { Component } from "vue-property-decorator";
+    import MainItems from "./views/MainItems.vue";
+
+    @Component({
+        components: {MainItems}
+    })
+    export default class App extends Vue {
+    }
+</script>
