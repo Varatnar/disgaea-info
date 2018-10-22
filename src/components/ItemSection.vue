@@ -39,6 +39,7 @@
     }
 
     .itemType {
+        padding-top: 5px;
         border: 1px solid #CCC;
         color: #CCC;
         background: #333;
