@@ -15,23 +15,23 @@ const itemDirectory = "items";
 const shortCutVariable = `${basePath}/${GamePaths.DISGAEA_5}/${itemDirectory}`;
 
 const ItemFiles = {
-    FIST: `${shortCutVariable}/Disgaea 5 Lists - Fist.csv`,
-    SWORD: `${shortCutVariable}/Disgaea 5 Lists - Sword.csv`,
-    SPEAR: `${shortCutVariable}/Disgaea 5 Lists - Spear.csv`,
-    BOW: `${shortCutVariable}/Disgaea 5 Lists - Gun.csv`,
-    AXE: `${shortCutVariable}/Disgaea 5 Lists - Axe.csv`,
-    STAFF: `${shortCutVariable}/Disgaea 5 Lists - Staff.csv`,
-    MONSTER_ATK: `${shortCutVariable}/Disgaea 5 Lists - MATK.csv`,
+    fists: `${shortCutVariable}/Disgaea 5 Lists - Fist.csv`,
+    swords: `${shortCutVariable}/Disgaea 5 Lists - Sword.csv`,
+    spears: `${shortCutVariable}/Disgaea 5 Lists - Spear.csv`,
+    bows: `${shortCutVariable}/Disgaea 5 Lists - Gun.csv`,
+    axes: `${shortCutVariable}/Disgaea 5 Lists - Axe.csv`,
+    staves: `${shortCutVariable}/Disgaea 5 Lists - Staff.csv`,
+    monsterAtkWeapons: `${shortCutVariable}/Disgaea 5 Lists - MATK.csv`,
 };
 
 const items = {
-    FIST: [],
-    SWORD: [],
-    SPEAR: [],
-    BOW: [],
-    AXE: [],
-    STAFF: [],
-    MONSTER_ATK: [],
+    fists: [],
+    swords: [],
+    spears: [],
+    bows: [],
+    axes: [],
+    staves: [],
+    monsterAtkWeapons: [],
     [Symbol.iterator]: function* () {
         for (let key in items) {
             yield items[key];

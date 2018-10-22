@@ -23,20 +23,16 @@ class Item {
             this.hit = validateNumber(data[Indexes.HIT]);
             this.spd = validateNumber(data[Indexes.SPD]);
 
-            this.mouvement = validateNumber(data[Indexes.MOVEMENT]);
+            this.movement = validateNumber(data[Indexes.MOVEMENT]);
             this.jump = validateNumber(data[Indexes.JUMP]);
             this.range = validateNumber(data[Indexes.RANGE]);
             this.counter = validateNumber(data[Indexes.COUNTER]);
-            this.crit = validateNumber(data[Indexes.CRITICAL]);
+            this.critical = validateNumber(data[Indexes.CRITICAL]);
 
             this.innocent = data[Indexes.INNOCENT];
         } catch (rootError) {
             throw new Error(`Could not create item with data,\n Data : ${data}\n Cause : ${rootError}`);
         }
-    }
-
-    isSpecial() {
-        return this.special;
     }
 }
 
