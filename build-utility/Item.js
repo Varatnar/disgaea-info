@@ -4,7 +4,7 @@ class Item {
             this.jpName = data[Indexes.JAPANESE_NAME];
             this.name = data[Indexes.ENGLISH_NAME];
 
-            this.itemRank = data[Indexes.ITEM_RANK];
+            this.itemRank = data[Indexes.ITEM_RANK] || "-";
             this.special = this.itemRank === "-";
 
             this.shopLevel = data[Indexes.SHOP_LEVEL];

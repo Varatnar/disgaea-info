@@ -1,7 +1,7 @@
 拳,Fist,IR,PR,HL,HP,SP,ATK,DEF,INT,RES,HIT,SPD,Mv,Jm,RN,CT,Crit,Innocent
 ゆびぬき,Thimble,1,0,80,,,3,,,,,3,,,1,1,10,
-ゴム手袋,Rubber gloves,2,0,200,,,6,,,,,6,,,1,1,10,
-ドレスグローブ,Dress gloves,3,1,500,,,9,,,,,9,,,1,1,10,
+ゴム手袋     ,Rubber Gloves     ,2 ,0 ,200     ,  ,  ,6   ,   ,   ,   ,   ,6   ,  ,  ,1 ,1 ,10  ,
+ドレスグローブ  ,Dress Gloves      ,3 ,1 ,500     ,  ,  ,9   ,   ,   ,   ,   ,9   ,  ,  ,1 ,1 ,10  ,
 マジックハンド,Magic Hand,4,1,1100,,,14,,,,,14,,,1,1,10,
 全力デコピン,Forehead Flicker,5,2,1800,,,21,,,,,21,,,1,1,12,
 キャッチャーミット,Catcher's Mitt,6,2,3000,,,29,,,,,29,,,1,1,10,
@@ -10,7 +10,7 @@
 メリケンサック,Brass Knuckles,9,4,12500,,,63,,,,,63,,,1,1,10,
 拳士のセスタス,Brawler's Cestuses,10,4,18000,,,77,,,,,77,,,1,1,10,
 肩たたき券,Massager,11,5,24000,,,93,,,,,93,,,1,1,15,
-パワーナックル,Power Knuck;ers,12,5,32000,,,109,,,,,109,,,1,1,12,
+パワーナックル  ,Power Knuckles    ,12,5 ,32000   ,  ,  ,109 ,   ,   ,   ,   ,109 ,  ,  ,1 ,1 ,12  ,
 げんこつデラックス,Fisticuffs Deluxe,13,6,45000,,,128,,,,,128,,,1,1,10,
 急所突き,Jugular Thrust,14,6,60000,,,147,,,,,147,,,1,1,15,
 シンガータ,Singauta,15,7,80000,,,168,,,,,168,,,1,1,10,
@@ -38,14 +38,14 @@
 ゴッドハンド,God Hand,37,-,,,,1057,,,,,1057,,,1,1,10,
 コスモブレイカー,Cosmo Breaker,38,-,,,,1127,,,,,1127,,,1,1,15,
 アムルテン,Ultimus,39,-,,,,1232,,,,,1232,,,1,1,10,
-フリームスルス,Furimusurusu,40,-,,,,,,,,,,,,,,,
+フリームスルス  ,Hrimthurse        ,40,- ,        ,  ,  ,    ,   ,   ,   ,   ,    ,  ,  ,  ,  ,    ,
 スィアチ,Thiassi,40,-,,,,,,,,,,,,,,,Revenge Booster
-ムスペル,Musuperu,40,-,,,,,,,,,,,,,,,
-テレビ,Tv set,10,-,,,,77,,,,,77,,,1,2,5,Diagonal 45 doss
-スイカ,Watermelon,10,-,,,,77,,,,,77,,,1,2,5,Watermelon splitting shop
-パイ,Pie,10,-,,,,77,,,,,77,,,1,2,5,Shot shop
-魔王拳*1,Satan fist * 1,10,-,,15,,120,7,,,,120,,,,,,
-DLC,Overlord Fist,10,,,,,,,,,,,,,2,2,10,DLC/Either Laharl
-DLC,Wolf Fang,10,,,,,105,,,,,105,,,2,2,10,DLC/Fenrich
-DLC,Burning Blow,10,,,30,,120,15,,,,120,1,12,1,2,15,DLC/Adell
-DLC,Dark Hero Soul,10,,,,15,120,,,,,120,,,1,1,10,
+ムスペル     ,Muspell           ,40,- ,        ,  ,  ,    ,   ,   ,   ,   ,    ,  ,  ,  ,  ,    ,
+テレビ      ,Tv set            ,- ,- ,        ,  ,  ,77  ,   ,   ,   ,   ,77  ,  ,  ,1 ,2 ,5   ,Diagonal 45 doss
+スイカ      ,Watermelon        ,- ,- ,        ,  ,  ,77  ,   ,   ,   ,   ,77  ,  ,  ,1 ,2 ,5   ,Watermelon splitting shop
+パイ       ,Pie               ,- ,- ,        ,  ,  ,77  ,   ,   ,   ,   ,77  ,  ,  ,1 ,2 ,5   ,Shot shop
+魔王拳*1    ,Satan fist * 1    ,- ,- ,        ,15,  ,120 ,7  ,   ,   ,   ,120 ,  ,  ,  ,  ,    ,
+DLC      ,Overlord Fist     ,- ,  ,        ,  ,  ,    ,   ,   ,   ,   ,    ,  ,  ,2 ,2 ,10  ,DLC/Either Laharl
+DLC      ,Wolf Fang         ,- ,  ,        ,  ,  ,105 ,   ,   ,   ,   ,105 ,  ,  ,2 ,2 ,10  ,DLC/Fenrich
+DLC      ,Burning Blow      ,- ,  ,        ,30,  ,120 ,15 ,   ,   ,   ,120 ,1 ,12,1 ,2 ,15  ,DLC/Adell
+DLC      ,Dark Hero Soul    ,- ,  ,        ,  ,15,120 ,   ,   ,   ,   ,120 ,  ,  ,1 ,1 ,10  ,

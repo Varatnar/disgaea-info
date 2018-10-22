@@ -23,6 +23,8 @@ const ItemFiles = {
     axes: `${shortCutVariable}/Disgaea 5 Lists - Axe.csv`,
     staves: `${shortCutVariable}/Disgaea 5 Lists - Staff.csv`,
     monsterAtkWeapons: `${shortCutVariable}/Disgaea 5 Lists - MATK.csv`,
+    monsterIntWeapons: `${shortCutVariable}/Disgaea 5 Lists - MEmb.csv`,
+    armors: `${shortCutVariable}/Disgaea 5 Lists - Armor.csv`,
 };
 
 const items = {
@@ -34,6 +36,8 @@ const items = {
     axes: [],
     staves: [],
     monsterAtkWeapons: [],
+    monsterIntWeapons: [],
+    armors: [],
     [Symbol.iterator]: function* () {
         for (let key in items) {
             yield items[key];
