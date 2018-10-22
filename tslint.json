@@ -9,6 +9,7 @@
     "interface-name": false,
     "object-literal-sort-keys": false,
     "trailing-comma": false,
+    "no-empty-interface": false,
     "variable-name": [
       true,
       "check-format",

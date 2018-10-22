@@ -26,7 +26,7 @@ class Item {
             this.mouvement = validateNumber(data[Indexes.MOVEMENT]);
             this.jump = validateNumber(data[Indexes.JUMP]);
             this.range = validateNumber(data[Indexes.RANGE]);
-            this.ct = validateNumber(data[Indexes.CT]);
+            this.counter = validateNumber(data[Indexes.COUNTER]);
             this.crit = validateNumber(data[Indexes.CRITICAL]);
 
             this.innocent = data[Indexes.INNOCENT];
@@ -51,6 +51,7 @@ function validateNumber(input) {
     }
 }
 
+//todo: not constant with current csv !!
 const Indexes = {
     JAPANESE_NAME: 0,
     ENGLISH_NAME: 1,
@@ -68,7 +69,7 @@ const Indexes = {
     MOVEMENT: 13,
     JUMP: 14,
     RANGE: 15,
-    CT: 16,
+    COUNTER: 16,
     CRITICAL: 17,
     INNOCENT: 18
 };
