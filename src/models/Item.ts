@@ -1,5 +1,4 @@
 export interface Item {
-
     japName: string;
     name: string;
 
@@ -33,9 +32,8 @@ export interface Gun extends Item {}
 export interface Axe extends Item {}
 export interface Staff extends Item {}
 export interface MonsterAtkWeapon extends Item {}
-
-export interface MonsterIntWeapon extends Item {
-}
+export interface MonsterIntWeapon extends Item {}
+export interface Armor extends Item {}
 
 export interface ItemBundle {
     fists: Fist[];
@@ -47,4 +45,5 @@ export interface ItemBundle {
     staves: Staff[];
     monsterAtkWeapons: MonsterAtkWeapon[];
     monsterIntWeapons: MonsterIntWeapon[];
+    armors: Armor[];
 }

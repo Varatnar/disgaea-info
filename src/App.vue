@@ -5,20 +5,15 @@
 </template>
 
 <style>
+    * {
+        box-sizing: border-box;
+    }
+
     body {
         background: black;
         color: #CCC;
         font-family: Tahoma, serif;
         font-size: 16px;
-    }
-
-    header {
-        position: fixed;
-        top: 0;
-        right: 0;
-        padding: 5px 5px 5px 15px;
-        background: black;
-        width: 100px;
     }
 
     a:link, a:visited {

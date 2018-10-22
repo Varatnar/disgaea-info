@@ -8,6 +8,7 @@
         <ItemSection sectionName="AXES" :itemGroup="itemList.axes"/>
         <ItemSection sectionName="MONSTER ATK" :itemGroup="itemList.monsterAtkWeapons"/>
         <ItemSection sectionName="MONSTER INT" :itemGroup="itemList.monsterIntWeapons"/>
+        <ItemSection section-name="ARMORS" :itemGroup="itemList.armors"/>
     </div>
 </template>
 

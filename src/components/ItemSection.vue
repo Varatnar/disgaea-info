@@ -33,33 +33,38 @@
 
 <style>
     .itemGroup {
-        margin: 5px;
+        margin: 5px 5px 20px;
         float: left;
-        width: calc((100% / 8) - (5px * 2));
+        width: calc(((100% - (10px * 8)) / 8));
     }
 
     .itemType {
-        padding: 5px 5px 5px 15px;
         border: 1px solid #CCC;
         color: #CCC;
         background: #333;
         font-weight: bold;
-        width: calc(100% - (5px * 4));
+        white-space: nowrap;
+        overflow: hidden;
+        height: 30px;
     }
 
     .itemRow {
-        border: 1px solid #CCC;
+        border-bottom: 1px solid #CCC;
+        border-left: 1px solid #CCC;
+        border-right: 1px solid #CCC;
         float: left;
         width: 100%;
+        height: calc(((100vh - 45px)/ 42));
     }
 
     .itemName {
-        padding: 5px 5px 5px 15px;
         color: #CCC;
         float: left;
+        vertical-align: middle;
         white-space: nowrap;
         overflow: hidden;
-        width: calc(100% - 61px);
+        width: 80%;
+        height: 100%;
     }
 
     div.itemGroup > div:nth-child(even) {
@@ -71,13 +76,13 @@
     }
 
     .itemRank {
-        padding: 5px 5px 5px 15px;
         border-left: 1px solid #CCC;
-        width: 20px;
-        height: content-box;
+        width: 20%;
+        overflow: hidden;
         color: #CCC;
         float: right;
         text-align: center;
         background: #111;
+        height: 100%;
     }
 </style>
