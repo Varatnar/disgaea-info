@@ -7,6 +7,7 @@
         <ItemSection sectionName="GUNS" :itemGroup="itemList.guns"/>
         <ItemSection sectionName="AXES" :itemGroup="itemList.axes"/>
         <ItemSection sectionName="MONSTER ATK" :itemGroup="itemList.monsterAtkWeapons"/>
+        <ItemSection sectionName="MONSTER INT" :itemGroup="itemList.monsterIntWeapons"/>
     </div>
 </template>
 

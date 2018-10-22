@@ -34,6 +34,9 @@ export interface Axe extends Item {}
 export interface Staff extends Item {}
 export interface MonsterAtkWeapon extends Item {}
 
+export interface MonsterIntWeapon extends Item {
+}
+
 export interface ItemBundle {
     fists: Fist[];
     swords: Sword[];
@@ -43,4 +46,5 @@ export interface ItemBundle {
     axes: Axe[];
     staves: Staff[];
     monsterAtkWeapons: MonsterAtkWeapon[];
+    monsterIntWeapons: MonsterIntWeapon[];
 }

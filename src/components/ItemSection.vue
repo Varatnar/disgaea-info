@@ -3,7 +3,7 @@
         <div class="itemType">
             {{sectionName}}
         </div>
-        <div v-for="item in itemGroup" class="itemRow">
+        <div v-for="item in itemGroup" v-if="item.itemRank !== '-'" class="itemRow">
             <div class="itemName">
                 {{item.name}}
             </div>
@@ -35,7 +35,7 @@
     .itemGroup {
         margin: 5px;
         float: left;
-        width: calc((100% / 7) - (5px * 2));
+        width: calc((100% / 8) - (5px * 2));
     }
 
     .itemType {
@@ -74,6 +74,7 @@
         padding: 5px 5px 5px 15px;
         border-left: 1px solid #CCC;
         width: 20px;
+        height: content-box;
         color: #CCC;
         float: right;
         text-align: center;
