@@ -55,10 +55,13 @@ function isParsedDataValid(parsedData) {
 async function parseFile(file) {
     const container = [];
 
+    let lineError;
+
     return new Promise((resolve, reject) => {
         fs.createReadStream(file)
             .pipe(csv())
             .on('data', (line) => {
+                lineError = line;
                 if (isParsedDataValid(line)) {
                     try {
                         container.push(new Item(line));
@@ -67,7 +70,7 @@ async function parseFile(file) {
                     }
                 }
             })
-            .on('error', () => reject(Error(`Could not parse file [${file}]`)))
+            .on('error', () => reject(Error(`Could not parse file [${file}]\n Error at line : ${lineError}`)))
             .on('end', () => {
                 resolve(container);
                 return container;
@@ -76,8 +79,12 @@ async function parseFile(file) {
 }
 
 async function parseAllItems() {
-    for (let fileKey in ItemFiles) {
-        items[fileKey] = await parseFile(ItemFiles[fileKey]);
+    try {
+        for (let fileKey in ItemFiles) {
+            items[fileKey] = await parseFile(ItemFiles[fileKey]);
+        }
+    }catch (error) {
+        console.error(error);
     }
 }
 
