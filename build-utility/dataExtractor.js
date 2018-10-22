@@ -75,7 +75,6 @@ async function parseAllItems() {
     }
 }
 
-//todo: Rather than create a json file, probably create some javascript containing the proper data as to not have to parse it back in main app
 parseAllItems().then(async () => {
     await fs.writeFileSync(bundleLocation, JSON.stringify(items, null, 2), "utf-8");
     console.log(`Successfully created JSON bundle at [${bundleLocation}]`)
