@@ -44,9 +44,9 @@ const items = {
     monsterAtkWeapons: [],
     monsterIntWeapons: [],
     armors: [],
-    belts: [],//
+    belts: [],
     muscles: [],
-    shoes: [],//
+    shoes: [],
     glasses: [],
     orbs: [],
     emblems: [],
