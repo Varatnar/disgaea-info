@@ -6,6 +6,7 @@
         <ItemSection sectionName="BOWS" :itemGroup="itemList.bows"/>
         <ItemSection sectionName="GUNS" :itemGroup="itemList.guns"/>
         <ItemSection sectionName="AXES" :itemGroup="itemList.axes"/>
+        <ItemSection sectionName="STAVES" :itemGroup="itemList.staves"/>
         <ItemSection sectionName="MONSTER ATK" :itemGroup="itemList.monsterAtkWeapons"/>
         <ItemSection sectionName="MONSTER INT" :itemGroup="itemList.monsterIntWeapons"/>
         <ItemSection section-name="ARMORS" :itemGroup="itemList.armors"/>

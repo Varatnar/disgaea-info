@@ -33,9 +33,9 @@
 
 <style>
     .itemGroup {
-        margin: 5px 5px 20px;
+        margin: 3px 3px 20px;
         float: left;
-        width: calc(((100% - (10px * 8)) / 8));
+        width: calc(((100% - (54px)) / 9));
     }
 
     .itemType {

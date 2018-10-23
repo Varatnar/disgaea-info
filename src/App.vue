@@ -13,7 +13,7 @@
         background: black;
         color: #CCC;
         font-family: Tahoma, serif;
-        font-size: 16px;
+        font-size: 15px;
     }
 
     a:link, a:visited {
