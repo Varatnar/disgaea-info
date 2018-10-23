@@ -54,7 +54,6 @@ function isParsedDataValid(parsedData) {
 
 async function parseFile(file) {
     const container = [];
-
     let lineError;
 
     return new Promise((resolve, reject) => {
@@ -79,16 +78,16 @@ async function parseFile(file) {
 }
 
 async function parseAllItems() {
-    try {
-        for (let fileKey in ItemFiles) {
-            items[fileKey] = await parseFile(ItemFiles[fileKey]);
-        }
-    }catch (error) {
-        console.error(error);
+    for (let fileKey in ItemFiles) {
+        items[fileKey] = await parseFile(ItemFiles[fileKey]);
     }
 }
 
 parseAllItems().then(async () => {
-    await fs.writeFileSync(bundleLocation, JSON.stringify(items, null, 2), "utf-8");
-    console.log(`Successfully created JSON bundle at [${bundleLocation}]`)
+    try {
+        await fs.writeFileSync(bundleLocation, JSON.stringify(items, null, 2), "utf-8");
+        console.log(`Successfully created JSON bundle at [${bundleLocation}]`)
+    } catch (error) {
+        console.error(error);
+    }
 });
