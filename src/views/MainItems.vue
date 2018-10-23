@@ -10,6 +10,12 @@
         <ItemSection sectionName="MONSTER ATK" :itemGroup="itemList.monsterAtkWeapons"/>
         <ItemSection sectionName="MONSTER INT" :itemGroup="itemList.monsterIntWeapons"/>
         <ItemSection section-name="ARMORS" :itemGroup="itemList.armors"/>
+        <ItemSection section-name="BELT" :item-group="itemList.belts"/>
+        <ItemSection section-name="MUSCLES" :item-group="itemList.muscles"/>
+        <ItemSection section-name="SHOES" :item-group="itemList.shoes"/>
+        <ItemSection section-name="GLASSES" :item-group="itemList.glasses"/>
+        <ItemSection section-name="ORBS" :item-group="itemList.orbs"/>
+        <ItemSection section-name="EMBLEMS" :item-group="itemList.emblems"/>
     </div>
 </template>
 

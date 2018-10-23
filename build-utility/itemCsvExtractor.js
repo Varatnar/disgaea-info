@@ -25,6 +25,12 @@ const ItemFiles = {
     monsterAtkWeapons: `${shortCutVariable}/Disgaea 5 Lists - MATK.csv`,
     monsterIntWeapons: `${shortCutVariable}/Disgaea 5 Lists - MEmb.csv`,
     armors: `${shortCutVariable}/Disgaea 5 Lists - Armor.csv`,
+    belts: `${shortCutVariable}/Disgaea 5 Lists - Belt.csv`,
+    muscles: `${shortCutVariable}/Disgaea 5 Lists - Muscle.csv`,
+    shoes: `${shortCutVariable}/Disgaea 5 Lists - Shoe.csv`,
+    glasses: `${shortCutVariable}/Disgaea 5 Lists - Glass.csv`,
+    orbs: `${shortCutVariable}/Disgaea 5 Lists - Orb.csv`,
+    emblems: `${shortCutVariable}/Disgaea 5 Lists - Emblem.csv`,
 };
 
 const items = {
@@ -38,6 +44,12 @@ const items = {
     monsterAtkWeapons: [],
     monsterIntWeapons: [],
     armors: [],
+    belts: [],//
+    muscles: [],
+    shoes: [],//
+    glasses: [],
+    orbs: [],
+    emblems: [],
     [Symbol.iterator]: function* () {
         for (let key in items) {
             yield items[key];
@@ -72,7 +84,6 @@ async function parseFile(file) {
             .on('error', () => reject(Error(`Could not parse file [${file}]\n Error at line : ${lineError}`)))
             .on('end', () => {
                 resolve(container);
-                return container;
             });
     });
 }

@@ -34,6 +34,12 @@ export interface Staff extends Item {}
 export interface MonsterAtkWeapon extends Item {}
 export interface MonsterIntWeapon extends Item {}
 export interface Armor extends Item {}
+export interface Belt extends Item {}
+export interface Muscle extends Item {}
+export interface Shoe extends Item {}
+export interface Glass extends Item {}
+export interface Orb extends Item {}
+export interface Emblem extends Item {}
 
 export interface ItemBundle {
     fists: Fist[];
@@ -46,4 +52,10 @@ export interface ItemBundle {
     monsterAtkWeapons: MonsterAtkWeapon[];
     monsterIntWeapons: MonsterIntWeapon[];
     armors: Armor[];
+    belts: Belt[];
+    muscles: Muscle[];
+    shoes: Shoe[];
+    glasses: Glass[];
+    orbs: Orb[];
+    emblems: Emblem[];
 }
