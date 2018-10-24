@@ -97,7 +97,7 @@ async function parseAllItems() {
 parseAllItems().then(async () => {
     try {
         await fs.writeFileSync(bundleLocation, JSON.stringify(items, null, 2), "utf-8");
-        console.log(`Successfully created JSON bundle at [${bundleLocation}]`)
+        console.log(`Successfully created JSON bundle for items at [${bundleLocation}]`)
     } catch (error) {
         console.error(error);
     }

@@ -1,51 +1,106 @@
-const {ClassJob, Tier, Stat} = require('./ClassReferences');
+const {ClassJob, Tier, Stat, Evility, Skill} = require('./ClassReferences');
 const request = require('request');
 const {JSDOM} = require('jsdom');
+const fs = require('fs');
 
-const DEFAULT_URL = "http://disgaea.wikia.com/wiki";
+const DEFAULT_DOMAIN_URL = "http://disgaea.fandom.com/wiki";
 const DEFAULT_GAME = "Disgaea_5";
+
+const bundleLocation = `${__dirname}/../src/assets/classes.json`;
 
 /**
  * Wrapper function for request to make it use a Promise
  *
  * @param url{string} URL to poll
+ * @param game{string|null}
+ * @param noRetry{boolean}
  * @returns {Promise<Body>}
  */
-async function get(url) {
+async function get(url, game, noRetry) {
     return new Promise(((resolve, reject) => {
-        request({uri: url}, (error, response, body) => {
+        request({uri: url}, async (error, response, body) => {
             if (!error && response.statusCode === 200) {
                 resolve(body);
+            } else if (!noRetry) {
+                const newUrl = url.replace(`_(${game})`, '');
+                resolve(await get(newUrl, null, true));
             } else {
-                reject();
+                reject(Error("Could not access page !"));
             }
         });
     }));
 }
 
-async function retrieveClassInformation(className, domainUrlOverride, gameOverride) {
+async function retrieveClassInformation(className, isNoSkillLevelSp, domainUrlOverride, gameOverride) {
 
-    const domainUrl = domainUrlOverride || DEFAULT_URL;
+    const domainUrl = domainUrlOverride || DEFAULT_DOMAIN_URL;
     const gameVersion = gameOverride || DEFAULT_GAME;
 
     const fullUrl = `${domainUrl}/${className}_(${gameVersion})`;
 
-    const document = new JSDOM(await get(fullUrl)).window.document;
+    const document = new JSDOM(await get(fullUrl, gameVersion, false)).window.document;
 
     const subClassesName = retrieveSubClassName(document);
 
-    if (subClassesName[0] !== className) {
-        throw new Error(`Reference class name [${className}] did not match [${subClassesName[0]}]`)
-    }
-
-    //example with first one
     const currentClass = new ClassJob(className);
 
     subClassesName.forEach((subClassName) => {
         currentClass.addTier(retrieveTierDataForClass(document, subClassName));
     });
 
-    console.log(JSON.stringify(currentClass, null, 2));
+
+    // Evilities
+    const evilitySelector = `#mw-content-text > table:nth-of-type(2) > tbody > tr:nth-child(n+2)`;
+
+    document.documentElement.querySelectorAll(evilitySelector).forEach((element) => {
+        currentClass.addEvility(new Evility(
+            cleanSpaceNewLine(element.childNodes[1].textContent),
+            cleanSpaceNewLine(element.childNodes[2].textContent),
+            cleanSpaceNewLine(element.childNodes[3].textContent),
+            cleanSpaceNewLine(element.childNodes[4].textContent)
+            )
+        );
+    });
+
+    // Skills
+    const skillSelector = `#mw-content-text > table:nth-of-type(3) > tbody > tr:nth-child(n+2)`;
+
+    if (isNoSkillLevelSp) {
+        document.documentElement.querySelectorAll(skillSelector).forEach((element) => {
+            currentClass.addSkill(new Skill(
+                cleanSpaceNewLine(element.childNodes[1].textContent),
+                cleanSpaceNewLine(element.childNodes[8].textContent),
+                "?",
+                cleanSpaceNewLine(element.childNodes[2].textContent),
+                cleanSpaceNewLine(element.childNodes[3].textContent),
+                cleanSpaceNewLine(element.childNodes[4].textContent),
+                cleanSpaceNewLine(element.childNodes[5].textContent),
+                cleanSpaceNewLine(element.childNodes[6].textContent),
+                cleanSpaceNewLine(element.childNodes[7].textContent),
+                cleanSpaceNewLine(element.childNodes[9].textContent),
+                )
+            );
+        });
+    } else {
+        document.documentElement.querySelectorAll(skillSelector).forEach((element) => {
+            let i = 1;
+            currentClass.addSkill(new Skill(
+                cleanSpaceNewLine(element.childNodes[i++].textContent),
+                cleanSpaceNewLine(element.childNodes[i++].textContent),
+                cleanSpaceNewLine(element.childNodes[i++].textContent),
+                cleanSpaceNewLine(element.childNodes[i++].textContent),
+                cleanSpaceNewLine(element.childNodes[i++].textContent),
+                cleanSpaceNewLine(element.childNodes[i++].textContent),
+                cleanSpaceNewLine(element.childNodes[i++].textContent),
+                cleanSpaceNewLine(element.childNodes[i++].textContent),
+                cleanSpaceNewLine(element.childNodes[i++].textContent),
+                cleanSpaceNewLine(element.childNodes[i].textContent),
+                )
+            );
+        });
+    }
+
+    return currentClass;
 
 }
 
@@ -61,9 +116,15 @@ function retrieveSubClassName(htmlDocument) {
     return subClasses;
 }
 
+/**
+ * Monster function that retrieves data for a class tier
+ *
+ * @param document{Document}
+ * @param tierName{string}
+ * @returns {Tier}
+ */
 function retrieveTierDataForClass(document, tierName) {
     const tier = new Tier(tierName);
-
 
     // Static stat section
     const staticStatSelector = `div > .tabbertab[title="${tierName}"] > table > tbody > tr:nth-child(3) > td > table > tbody > tr:nth-child(4) > td`;
@@ -181,13 +242,10 @@ function retrieveTierDataForClass(document, tierName) {
         reincarnationCosts[i]
     );
 
-    // Unlocked hint
+    // Unlock hint
+    const unlockHintSelector = `div > .tabbertab[title="${tierName}"] > table > tbody > tr:nth-child(8) > td > table > tbody > tr > td`;
 
-    // Evilities
-    const evilitiesSelector = ``;
-
-    // Skills
-    const skillSelector = ``;
+    tier.setUnlockHint(cleanSpaceNewLine(document.documentElement.querySelector(unlockHintSelector).textContent));
 
     return tier;
 }
@@ -196,5 +254,53 @@ function cleanInput(input) {
     return input.replace(/ /g, '').replace(/%/g, '').replace(/\n/g, '');
 }
 
-retrieveClassInformation("Professor").then(() => {
+function cleanSpaceNewLine(input) {
+    return input.replace(/^ | $|\n/gm, '');
+}
+
+const humanClassNames = [
+    "Professor"
+];
+
+const monsterClasseNames = [
+    "Dragon_King"
+];
+const classes = [];
+
+async function ripAllClasses() {
+
+    for (let humanClassNamesKey in humanClassNames) {
+        classes.push(await retrieveClassInformation(humanClassNames[humanClassNamesKey]));
+    }
+
+    for (let monsterClassNamesKey in monsterClasseNames) {
+        classes.push(await retrieveClassInformation(monsterClasseNames[monsterClassNamesKey], true));
+    }
+
+    // humanClassNames.forEach(async value => {
+    //     try {
+    //         classes.push(await retrieveClassInformation(value))
+    //     } catch (e) {
+    //         console.error(`${e}`);
+    //     }
+    // });
+
+    // monsterClasseNames.forEach(async value => {
+    //     try {
+    //         // Weird argument needed because skill use different format for monster...
+    //         classes.push(await retrieveClassInformation(value, true));
+    //     } catch (e) {
+    //         console.error(`${e}`);
+    //     }
+    // });
+
+}
+
+ripAllClasses().then(async () => {
+    try {
+        await fs.writeFileSync(bundleLocation, JSON.stringify(classes, null, 2), "utf-8");
+        console.log(`Successfully created JSON bundle for classes at [${bundleLocation}]`)
+    } catch (error) {
+        console.error(error);
+    }
 });

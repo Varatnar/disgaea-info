@@ -236,18 +236,19 @@ class Evility {
 /**
  * Skill definition in disgaea 5
  */
-class Skills {
-    constructor(name, lvl, sp, power, element, ailment, range, height, description, rangeData) {
+class Skill {
+    constructor(name, lvl, sp, power, stat, element, ailment, range, height, description, rangeData) {
         this.name = name;
         this.lvl = parseInt(lvl);
-        this.sp = parseInt(sp);
+        this.sp = sp;
         this.power = power;
+        this.stat = stat;
         this.element = element;
         this.ailment = ailment;
         this.range = range;
         this.height = height;
         this.description = description;
-        this.rangeData = rangeData;
+        this.rangeData = rangeData;//todo: make image analyser and save point information rather than image
     }
 }
 
@@ -256,5 +257,5 @@ module.exports = {
     Tier,
     Stat,
     Evility,
-    Skills
+    Skill
 };

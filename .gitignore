@@ -21,3 +21,4 @@ yarn-error.log*
 *.sw*
 
 src/assets/items.json
+src/assets/classes.json
