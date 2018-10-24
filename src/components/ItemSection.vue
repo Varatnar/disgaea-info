@@ -16,13 +16,13 @@
 
 <script lang="ts">
     import { Component, Vue } from "vue-property-decorator";
-    import { Fist } from "../models/Item";
+    import { Item } from "../models/Item";
 
     @Component({
         props: {
             sectionName: String,
             itemGroup: {
-                type: Array as () => Fist[]
+                type: Array as () => Item[]
             }
         }
     })
