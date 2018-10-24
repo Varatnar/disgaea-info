@@ -277,23 +277,6 @@ async function ripAllClasses() {
         classes.push(await retrieveClassInformation(monsterClasseNames[monsterClassNamesKey], true));
     }
 
-    // humanClassNames.forEach(async value => {
-    //     try {
-    //         classes.push(await retrieveClassInformation(value))
-    //     } catch (e) {
-    //         console.error(`${e}`);
-    //     }
-    // });
-
-    // monsterClasseNames.forEach(async value => {
-    //     try {
-    //         // Weird argument needed because skill use different format for monster...
-    //         classes.push(await retrieveClassInformation(value, true));
-    //     } catch (e) {
-    //         console.error(`${e}`);
-    //     }
-    // });
-
 }
 
 ripAllClasses().then(async () => {
