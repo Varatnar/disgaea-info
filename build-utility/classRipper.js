@@ -8,6 +8,8 @@ const DEFAULT_GAME = "Disgaea_5";
 
 const bundleLocation = `${__dirname}/../src/assets/classes.json`;
 
+const badClass = [];
+
 /**
  * Wrapper function for request to make it use a Promise
  *
@@ -100,8 +102,14 @@ async function retrieveClassInformation(className, isNoSkillLevelSp, domainUrlOv
         });
     }
 
-    return currentClass;
+    if (currentClass.tiers.length === 0) {
+        badClass.push(currentClass.categoryName);
+        console.log(`Could not parse page for class group [${currentClass.categoryName}]`);
+    } else {
+        console.log(`Retrieved class data for class group [${currentClass.categoryName}]`);
+    }
 
+    return currentClass;
 }
 
 function retrieveSubClassName(htmlDocument) {
@@ -258,23 +266,73 @@ function cleanSpaceNewLine(input) {
     return input.replace(/^ | $|\n/gm, '');
 }
 
+// (\w+ ?(\w+))
+// "$1",\n
+
+// \"(\w+)\s(\w+)\"
+// "$1_$2"
+
 const humanClassNames = [
-    "Professor"
+    "Archer",
+    "Armor_Knight",
+    "Asagi_(Disgaea_5_Class)",
+    "Celestial_Host",
+    "Cleric",
+    "Clergy",
+    "Dark_Knight",
+    "Fight_Mistress",
+    "Gunner",
+    "Lady_Samurai",
+    "Mage",
+    "Magic_Knight",
+    "Maid",
+    "Martial_Artist",
+    "Ninja",
+    "Pirate",
+    "Professor",
+    "Sage",
+    "Samurai",
+    "Skull",
+    "Thief",
+    "Valkyrie",
+    "Warrior",
+    "Wrestler",
 ];
 
-const monsterClasseNames = [
-    "Dragon_King"
+const monsterClassNames = [
+    "Bear",
+    "Chimera",
+    "Dragon_King",
+    "Fairy",
+    "Felynn",
+    "Flora_Beast",
+    "Horseman",
+    "Imp",
+    "Nether_Noble",
+    "Nine-Tails",
+    "Orc",
+    "Prinny",
+    "Rabbit",
+    "Sea_Angel",
+    "Shroom",
+    "Sludge",
+    "Slumber_Cat",
+    "Succubus",
+    "Twin_Dragon",
+    "Undead",
+    "Winged_Warrior",
 ];
 const classes = [];
 
 async function ripAllClasses() {
 
+    // forin used to be able to properly use the await keyword
     for (let humanClassNamesKey in humanClassNames) {
         classes.push(await retrieveClassInformation(humanClassNames[humanClassNamesKey]));
     }
 
-    for (let monsterClassNamesKey in monsterClasseNames) {
-        classes.push(await retrieveClassInformation(monsterClasseNames[monsterClassNamesKey], true));
+    for (let monsterClassNamesKey in monsterClassNames) {
+        classes.push(await retrieveClassInformation(monsterClassNames[monsterClassNamesKey], true));
     }
 
 }
@@ -282,7 +340,10 @@ async function ripAllClasses() {
 ripAllClasses().then(async () => {
     try {
         await fs.writeFileSync(bundleLocation, JSON.stringify(classes, null, 2), "utf-8");
-        console.log(`Successfully created JSON bundle for classes at [${bundleLocation}]`)
+        console.log(`Successfully created JSON bundle for classes at [${bundleLocation}]`);
+        if (badClass.length > 0) {
+            console.log(`The following classes were'nt filled properly :\n ${JSON.stringify(badClass, null, 2)}`);
+        }
     } catch (error) {
         console.error(error);
     }
