@@ -26,7 +26,8 @@
         components: {StatComponent},
         props: {
             stats: {
-                type: Object as () => Stats
+                type: Object as () => Stats,
+                required: true
             }
         }
     })

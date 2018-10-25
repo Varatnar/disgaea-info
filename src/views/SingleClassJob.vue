@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="classGroup">
-            <TierComponent :tier="currentClass.tiers[0]"/>
+            <ClassSection :class-group="currentClass"/>
         </div>
     </div>
 </template>
@@ -16,12 +16,12 @@
 <script lang="ts">
     import { Component, Vue } from "vue-property-decorator";
     import classJson from "../assets/classes.json";
-    import TierComponent from "../components/class/TierComponent.vue";
+    import ClassSection from "../components/ClassSection.vue";
     import { ClassJob } from "../models/Class";
 
     @Component({
         components: {
-            TierComponent
+            ClassSection
         }
     })
     export default class MainItems extends Vue {

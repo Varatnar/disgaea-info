@@ -1,6 +1,6 @@
 <template>
-    <div>
-        {{tier.name}}
+    <div class="tier-data">
+        <span>{{tier.name}}</span>
         <StatsComponent :stats="tier.stats"/>
     </div>
 </template>
@@ -16,7 +16,8 @@
         },
         props: {
             tier: {
-                type: Object as () => Tier
+                type: Object as () => Tier,
+                required: true
             }
         }
     })
@@ -26,5 +27,9 @@
 </script>
 
 <style scoped>
+
+    .tier-data {
+        border: 1px solid blue;
+    }
 
 </style>

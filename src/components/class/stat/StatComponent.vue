@@ -20,7 +20,8 @@
         props: {
             rowName: String,
             stat: {
-                type: Object as () => Stat
+                type: Object as () => Stat,
+                required: true
             }
         }
     })
