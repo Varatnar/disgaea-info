@@ -3,6 +3,15 @@
         <div class="cell">
             {{evility.name}}
         </div>
+        <div class="cell">
+            {{evility.effect}}
+        </div>
+        <div class="cell">
+            {{evility.requirement}}
+        </div>
+        <div class="cell">
+            {{evility.slot}}
+        </div>
     </div>
 </template>
 

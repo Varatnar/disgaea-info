@@ -64,8 +64,15 @@
 
     .cell {
         display: table-cell;
-        min-width: 10px;
         border: 1px lavender dotted;
+        padding: 10px;
+        min-width: 10px;
+
+        text-align: center;
+    }
+
+    .cell-column-title {
+        font-weight: bold;
     }
 
     .title {

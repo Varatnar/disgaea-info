@@ -1,6 +1,22 @@
 <template>
-    <div class="table">
-        <EvilityComponent v-for="evility in evilities" :evility="evility" :key="evility.name"/>
+    <div class="evilities-section">
+        <div class="table">
+            <div class="row">
+                <div class="cell cell-column-title">
+                    Name
+                </div>
+                <div class="cell cell-column-title">
+                    Effect
+                </div>
+                <div class="cell cell-column-title">
+                    Requirement
+                </div>
+                <div class="cell cell-column-title">
+                    Slots
+                </div>
+            </div>
+            <EvilityComponent v-for="evility in evilities" :evility="evility" :key="evility.name"/>
+        </div>
     </div>
 </template>
 
@@ -25,6 +41,8 @@
     }
 </script>
 
-<style>
-
+<style scoped>
+    .evilities-section {
+        border: 1px solid orange;
+    }
 </style>

@@ -1,6 +1,8 @@
 <template>
-    <div class="table">
-        <SkillComponent v-for="skill in skills" :skill="skill" :key="skill.name"/>
+    <div class="skills-section">
+        <div class="table">
+            <SkillComponent v-for="skill in skills" :skill="skill" :key="skill.name"/>
+        </div>
     </div>
 </template>
 
@@ -25,5 +27,9 @@
 </script>
 
 <style scoped>
+
+    .skills-section {
+        border: 1px solid cyan;
+    }
 
 </style>

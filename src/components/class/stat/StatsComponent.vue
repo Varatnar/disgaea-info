@@ -37,7 +37,5 @@
 </script>
 
 <style scoped>
-    .cell {
-        padding: 10px;
-    }
+
 </style>
