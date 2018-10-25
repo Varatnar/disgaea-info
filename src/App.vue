@@ -1,7 +1,6 @@
 <template>
     <div id="app">
-        <SingleClassJob/>
-        <!--<MainItems/>-->
+        <router-view></router-view>
     </div>
 </template>
 

@@ -24,7 +24,7 @@
             ClassSection
         }
     })
-    export default class MainItems extends Vue {
+    export default class SingleClassJob extends Vue {
         public classList: ClassJob[] = classJson;
 
         public currentClass: ClassJob = this.classList[0];

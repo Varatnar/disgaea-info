@@ -1,5 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
+import MainItems from "./views/MainItems.vue";
+import SingleClassJob from "./views/SingleClassJob.vue";
 
 Vue.use(Router);
 
@@ -7,5 +9,14 @@ Vue.use(Router);
 export default new Router({
     mode: "history",
     base: process.env.BASE_URL,
-    routes: [],
+    routes: [
+        {
+            path: "/items",
+            component: MainItems
+        },
+        {
+            path: "/classes",
+            component: SingleClassJob
+        }
+    ],
 });
