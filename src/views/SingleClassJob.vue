@@ -48,10 +48,10 @@
     }
 
     /*.table {*/
-        /*background-color: whitesmoke;*/
-        /*border: 1px blue dashed;*/
-        /*text-align: center;*/
-        /*width: 100%;*/
+    /*background-color: whitesmoke;*/
+    /*border: 1px blue dashed;*/
+    /*text-align: center;*/
+    /*width: 100%;*/
     /*}*/
 
     /* Imported stuff !!
