@@ -1,17 +1,24 @@
 <template>
     <div class="tier-data">
         <span>{{tier.name}}</span>
-        <StatsComponent :stats="tier.stats"/>
+        <div class="cell">
+            <StatsComponent :stats="tier.stats"/>
+        </div>
+        <div class="cell">
+            <BasicStatComponent :stats="tier.stats"/>
+        </div>
     </div>
 </template>
 
 <script lang="ts">
     import { Component, Vue } from "vue-property-decorator";
     import { Tier } from "../../models/Class";
+    import BasicStatComponent from "./stat/BasicStatsComponent.vue";
     import StatsComponent from "./stat/StatsComponent.vue";
 
     @Component({
         components: {
+            BasicStatComponent,
             StatsComponent
         },
         props: {
