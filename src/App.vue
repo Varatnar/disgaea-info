@@ -1,8 +1,22 @@
 <template>
     <div id="app">
-        <MainItems/>
+        <SingleClassJob/>
+        <!--<MainItems/>-->
     </div>
 </template>
+
+<script lang="ts">
+    import Vue from "vue";
+    import { Component } from "vue-property-decorator";
+    import MainItems from "./views/MainItems.vue";
+    import SingleClassJob from "./views/SingleClassJob.vue";
+
+    @Component({
+        components: {SingleClassJob, MainItems}
+    })
+    export default class App extends Vue {
+    }
+</script>
 
 <style>
     * {
@@ -24,7 +38,6 @@
         font-family: 'Avenir', Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        text-align: center;
         color: #2c3e50;
     }
 
@@ -40,15 +53,23 @@
     #nav a.router-link-exact-active {
         color: #42b983;
     }
-</style>
-<script lang="ts">
-    import Vue from "vue";
-    import { Component } from "vue-property-decorator";
-    import MainItems from "./views/MainItems.vue";
 
-    @Component({
-        components: {MainItems}
-    })
-    export default class App extends Vue {
+    .table {
+        display: table;
     }
-</script>
+
+    .row {
+        display: table-row;
+    }
+
+    .cell {
+        display: table-cell;
+        min-width: 10px;
+        border: 1px lavender dotted;
+    }
+
+    .title {
+        display: table-caption;
+    }
+
+</style>
