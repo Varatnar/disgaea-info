@@ -89,7 +89,7 @@ export interface Evility {
 
 export interface Skill {
     name: string;
-    lvl: number;
+    lvl: string;
     sp: string;
     power: string;
     stat: string;

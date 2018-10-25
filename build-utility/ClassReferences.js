@@ -239,7 +239,7 @@ class Evility {
 class Skill {
     constructor(name, lvl, sp, power, stat, element, ailment, range, height, description, rangeData) {
         this.name = name;
-        this.lvl = parseInt(lvl);
+        this.lvl = lvl;
         this.sp = sp;
         this.power = power;
         this.stat = stat;
