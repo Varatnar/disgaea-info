@@ -14,7 +14,7 @@
 
 <script lang="ts">
     import { Component, Vue } from "vue-property-decorator";
-    import { Stat } from "../../models/Class";
+    import { Stat } from "../../../models/Class";
 
     @Component({
         props: {

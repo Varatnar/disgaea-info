@@ -4,7 +4,7 @@
             <div class="cell">
                 <!--blank-->
             </div>
-            <div class="cell cell-column-title">Base stat</div>
+            <div class="cell cell-column-title">Base</div>
             <div class="cell cell-column-title">Aptitude</div>
         </div>
         <StatComponent row-name="HP" :stat="stats.hp"/>
@@ -19,7 +19,7 @@
 
 <script lang="ts">
     import { Component, Vue } from "vue-property-decorator";
-    import { Stats } from "../../models/Class";
+    import { Stats } from "../../../models/Class";
     import StatComponent from "./StatComponent.vue";
 
     @Component({
