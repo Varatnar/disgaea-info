@@ -74,7 +74,7 @@
     }
 
     .switcher {
-        position: absolute;
+        position: fixed;
         right: 5px;
 
         padding: 10px;
