@@ -7,7 +7,7 @@ Vue.use(Router);
 
 // todo: Add different routes, left as a place holder for when route will be needed
 export default new Router({
-    mode: "history",
+    mode: "hash",
     base: process.env.BASE_URL,
     routes: [
         {
